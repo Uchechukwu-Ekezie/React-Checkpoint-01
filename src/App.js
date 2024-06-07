@@ -1,25 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
+// src/App.js
+import React from 'react';
+import { Card } from 'react-bootstrap';
+import Name from './Name';
+import Price from './Price';
+import Description from './Description';
+import Image from './Image';
 
-function App() {
+const App = () => {
+  const firstName = "Uchenna Hanson";
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Card style={{ width: '18rem' }}>
+        <Card.Body>
+          <Name />
+          <Price />
+          <Description />
+          <Image />
+        </Card.Body>
+      </Card>
+      <p>Hello, {firstName ? firstName : "there!"}</p>
+      {firstName && <img src={`https://avatars.githubusercontent.com/u/105205124?v=4${firstName.toLowerCase()}.jpg`} alt={firstName} />}
     </div>
   );
-}
+};
 
 export default App;
